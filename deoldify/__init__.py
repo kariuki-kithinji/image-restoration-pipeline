@@ -15,13 +15,15 @@ def download_model():
         os.makedirs('models')
     
     file_path = './models/ColorizeStable_gen.pth'
+    
     if os.path.exists(file_path):
         print('Model file already exists.')
         return
     
-    url = 'https://www.dropbox.com/s/axsd2g85uyixaho/ColorizeStable_gen.pth?dl=0'
+    command = f"wget -O {file_path} https://www.dropbox.com/s/axsd2g85uyixaho/ColorizeStable_gen.pth?dl=0"
+    
     try:
-        urllib.request.urlretrieve(url, file_path)
+        os.system(command)
         print('File downloaded successfully.')
     except Exception as e:
         print('An error occurred while downloading the file:', str(e))
