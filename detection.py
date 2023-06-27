@@ -17,6 +17,7 @@ from PIL import Image, ImageFile
 from detection_models import networks
 from detection_util.util import *
 
+
 warnings.filterwarnings("ignore", category=UserWarning)
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
@@ -68,6 +69,7 @@ def blend_mask(img, mask):
     np_img = np.array(img).astype("float")
 
     return Image.fromarray((np_img * (1 - mask) + mask * 255.0).astype("uint8")).convert("RGB")
+
 
 
 def main(config):
@@ -176,3 +178,4 @@ if __name__ == "__main__":
     config = parser.parse_args()
 
     main(config)
+    
