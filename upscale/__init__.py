@@ -9,7 +9,7 @@ class BGUpsampler:
     def __init__(self):
         self.model = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=2)
         self.bg_upsampler = RealESRGANer(
-                scale=2,
+                scale=2, 
                 model_path='https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.1/RealESRGAN_x2plus.pth',
                 model=self.model,tile=400,tile_pad=10,pre_pad=0,half=True)  # need to set False in CPU mode
 
