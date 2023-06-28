@@ -10,3 +10,5 @@ mask , orginal = model.get_mask('new.webp')
 inpaint = Inpaint(orginal, mask)
 inpainted_img = inpaint()#*255
 plt.imsave('final.png', inpainted_img)
+f = FaceUpsampler()
+b = BGUpsampler()
