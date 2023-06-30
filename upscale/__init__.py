@@ -27,7 +27,7 @@ class FaceUpsampler:
     
     def upsample(self,path):
         basename, ext = os.path.splitext(path)
-        input_img = cv2.imread(img_path, cv2.IMREAD_COLOR)
+        input_img = cv2.imread(path, cv2.IMREAD_COLOR)
 
         # restore faces and background if necessary
         cropped_faces, restored_faces, restored_img = self.restorer.enhance(
