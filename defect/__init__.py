@@ -86,7 +86,7 @@ class ScratchModel:
         print(f'[+] using {self.device}')
         self.model.to(self.device)
         self.model.eval()
-        self.input_size = "scale_256"
+        self.input_size = "full_size"
 
     def get_mask(self, path):
         
