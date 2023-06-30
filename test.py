@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 model = ScratchModel('detection/FT_Epoch_latest.pt')
 mask , orginal = model.get_mask('new.webp')
 inpaint = Inpaint(orginal, mask)
-inpainted_img = inpaint()#*255
+inpainted_img = inpaint()
 plt.imsave('final.png', inpainted_img)
 f = FaceUpsampler()
 b = BGUpsampler()
