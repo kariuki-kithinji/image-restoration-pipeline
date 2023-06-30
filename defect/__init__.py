@@ -37,7 +37,7 @@ def data_transforms(img, full_size, method=Image.BICUBIC):
             return img
         return img.resize((w, h), method)
 
-    elif full_size == "full_size":
+    elif full_size == "scale_256":
         ow, oh = img.size
         pw, ph = ow, oh
         if ow < oh:
