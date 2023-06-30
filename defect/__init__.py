@@ -74,7 +74,7 @@ def blend_mask(img, mask):
     return Image.fromarray((np_img * (1 - mask) + mask * 255.0).astype("uint8")).convert("RGB")
 
 class ScratchModel:
-    def __init__(self,path):        
+    def __init__(self,path,input_size='scale_256'):        
         self.model = networks.UNet(in_channels=1,out_channels=1,depth=4,conv_num=2,wf=6,padding=True,
                     batch_norm=True,up_mode="upsample",with_tanh=False,sync_bn=True,antialiasing=True,)
         self.checkpoint_path = os.path.join(os.path.dirname(__file__), path)
@@ -86,7 +86,7 @@ class ScratchModel:
         print(f'[+] using {self.device}')
         self.model.to(self.device)
         self.model.eval()
-        self.input_size = "full_size"
+        self.input_size = input_size
 
     def get_mask(self, path):
         
