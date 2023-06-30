@@ -5,6 +5,8 @@ import os
 from basicsr.utils import imwrite
 from gfpgan import GFPGANer
 
+import cv2
+
 class BGUpsampler:
     def __init__(self):
         self.model = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=2)
